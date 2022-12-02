@@ -1,0 +1,116 @@
+type Approval @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  approved: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  operator: Bytes! # address
+  approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type addClientEvent @entity(immutable: true) {
+  id: Bytes!
+  clientId: Bytes! # address
+  name: String! # string
+  email: String! # string
+  phone_number: BigInt! # uint256
+  company_name: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type addFreelancerEvent @entity(immutable: true) {
+  id: Bytes!
+  freelancerId: Bytes! # address
+  name: String! # string
+  phone_number: BigInt! # uint256
+  email: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type assignProjectEvent @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  client: Bytes! # address
+  freelance: Bytes! # address
+  listing_price: BigInt! # uint256
+  project_cost: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type listingMintedEvent @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  client: Bytes! # address
+  listing_price: BigInt! # uint256
+  project_cost: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type projectCompleted @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  client: Bytes! # address
+  freelancer: Bytes! # address
+  project_cost: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type purchaseListingEvent @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  client: Bytes! # address
+  freelancer: Bytes! # address
+  listing_price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type rejectProjectEvent @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  client: Bytes! # address
+  freelancer: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
