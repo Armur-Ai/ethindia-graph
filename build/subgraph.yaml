@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: NFTFreelance
@@ -23,7 +23,7 @@ dataSources:
         - rejectProjectEvent
       abis:
         - name: NFTFreelance
-          file: ./abis/NFTFreelance.json
+          file: NFTFreelance/abis/NFTFreelance.json
       eventHandlers:
         - event: addClientEvent(indexed address,string,string,uint256,string)
           handler: handleaddClientEvent
@@ -39,4 +39,4 @@ dataSources:
           handler: handlepurchaseListingEvent
         - event: rejectProjectEvent(indexed uint256,address,address)
           handler: handlerejectProjectEvent
-      file: ./src/nft-freelance.ts
+      file: NFTFreelance/NFTFreelance.wasm
